@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodehello-deployment
+  labels:
+    app: nodehello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodehello
+  template:
+    metadata:
+      labels:
+        app: nodehello
+    spec:
+      containers:
+      - name: nodehello
+        image: dhruvnayak/nodehello:latest
+        ports:
+        - containerPort: 3000
